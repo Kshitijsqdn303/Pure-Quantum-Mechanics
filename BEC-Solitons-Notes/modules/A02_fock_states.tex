@@ -1,0 +1,75 @@
+\section{A2: Occupation numbers and Fock states}
+
+Let $\{\phi_j\}$ be an orthonormal one-particle basis. If $n_j$ bosons occupy
+orbital $j$, then
+\[
+\sum_j n_j=N,
+\qquad
+\boxed{|n_0,n_1,n_2,\ldots\rangle}
+\]
+denotes the corresponding occupation-number or Fock state.
+
+For example, two bosons in $a$ and one in $b$ have wavefunction
+\[
+\Psi_{2,1}
+=\frac1{\sqrt3}(aab+aba+baa)
+\]
+and occupation representation $|2_a,1_b\rangle$. The latter records the
+physical information without assigning identities to the bosons.
+
+For occupations $\{n_j\}$, the number of distinct assignments to $N$
+coordinate slots is
+\[
+M=\frac{N!}{\prod_j n_j!}.
+\]
+Hence the normalized symmetric wavefunction is
+\[
+\boxed{
+\Psi_{\{n_j\}}
+=
+\sqrt{\frac{\prod_jn_j!}{N!}}
+\sum_{\text{distinct }P}
+\phi_{\alpha_{P(1)}}(\mathbf r_1)\cdots
+\phi_{\alpha_{P(N)}}(\mathbf r_N),
+}
+\]
+where orbital $j$ appears $n_j$ times in the list
+$(\alpha_1,\ldots,\alpha_N)$.
+
+If all bosons occupy $\phi_0$, then $n_0=N$, $M=1$, and
+\[
+\Psi_N=\prod_{i=1}^N\phi_0(\mathbf r_i),
+\qquad
+|\Psi_N\rangle=|N,0,0,\ldots\rangle.
+\]
+
+Occupation states are orthonormal:
+\[
+\langle m_0,m_1,\ldots|n_0,n_1,\ldots\rangle
+=\prod_j\delta_{m_jn_j}.
+\]
+A general fixed-$N$ state is therefore
+\[
+|\Psi_N\rangle
+=\sum_{\{n_j\};\,\sum_jn_j=N}
+C_{n_0,n_1,\ldots}|n_0,n_1,\ldots\rangle,
+\qquad
+\sum_{\{n_j\}}|C_{n_0,n_1,\ldots}|^2=1.
+\]
+
+The bosonic Fock space collects all particle-number sectors:
+\[
+\mathcal F_B
+=\mathcal H_0\oplus\mathcal H_1\oplus
+\mathcal H_2^{(B)}\oplus\cdots.
+\]
+This formal enlargement does not imply particle-number nonconservation.
+
+A simple condensate has one macroscopically occupied orbital:
+\[
+n_0=O(N),
+\qquad
+\lim_{N\to\infty}\frac{n_0}{N}>0.
+\]
+Thus condensation requires a finite fraction of all bosons in one orbital,
+rather than literally every particle.
