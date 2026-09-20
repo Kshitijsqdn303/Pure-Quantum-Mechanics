@@ -1,0 +1,95 @@
+\section{A1: Identical bosons and symmetric wavefunctions}
+
+\subsection{Exchange of identical particles}
+
+For two distinguishable particles in one-particle states
+$\phi_a$ and $\phi_b$, a product state is
+\[
+\Psi(\mathbf r_1,\mathbf r_2)
+=\phi_a(\mathbf r_1)\phi_b(\mathbf r_2).
+\]
+For identical particles, the labels $1$ and $2$ label coordinate slots rather
+than physically distinguishable atoms. Define the exchange operator by
+\[
+\hat P_{12}\Psi(\mathbf r_1,\mathbf r_2)
+=\Psi(\mathbf r_2,\mathbf r_1).
+\]
+Since two exchanges restore the original state,
+\[
+\hat P_{12}^2=\hat I.
+\]
+If $\hat P_{12}\Psi=\lambda\Psi$, then
+$\lambda^2=1$, so $\lambda=\pm1$. Bosons occupy the symmetric sector:
+\[
+\boxed{\hat P_{12}\Psi_B=+\Psi_B.}
+\]
+
+\subsection{Two bosons in different orbitals}
+
+For normalized orthogonal orbitals $a$ and $b$, the symmetric state is
+\[
+\boxed{
+\Psi_B(\mathbf r_1,\mathbf r_2)
+=\frac{1}{\sqrt2}
+\left[
+\phi_a(\mathbf r_1)\phi_b(\mathbf r_2)
++\phi_b(\mathbf r_1)\phi_a(\mathbf r_2)
+\right].
+}
+\]
+The normalization follows from
+\[
+\langle\Psi_B|\Psi_B\rangle
+=|C|^2(1+0+0+1)=2|C|^2=1.
+\]
+The state says that one boson occupies $a$ and one occupies $b$; there is no
+physical fact assigning a particular atom to either orbital.
+
+Squaring the wavefunction produces an exchange-interference term:
+\[
+|\Psi_B|^2
+=\frac12|a_1b_2|^2+\frac12|b_1a_2|^2
++\operatorname{Re}(a_1^*b_2^*b_1a_2).
+\]
+Thus indistinguishability affects measurable probabilities even without a
+dynamical interaction between the particles.
+
+\subsection{Two bosons in the same orbital}
+
+If both particles occupy $\phi_a$, the normalized wavefunction is
+\[
+\boxed{
+\Psi_B(\mathbf r_1,\mathbf r_2)
+=\phi_a(\mathbf r_1)\phi_a(\mathbf r_2).
+}
+\]
+For $N$ bosons in one orbital $\phi_0$,
+\[
+\boxed{
+\Psi_N(\mathbf r_1,\ldots,\mathbf r_N)
+=\prod_{j=1}^{N}\phi_0(\mathbf r_j).
+}
+\]
+This is automatically symmetric. The ability of arbitrarily many bosons to
+occupy one orbital is the statistical foundation of Bose--Einstein
+condensation.
+
+\subsection{Symmetrization operator}
+
+For two particles,
+\[
+\hat S=\frac12(\hat I+\hat P_{12}).
+\]
+It satisfies
+\[
+\hat S^2=\hat S,
+\qquad
+\hat P_{12}\hat S=\hat S,
+\]
+so it projects a two-particle state onto its symmetric part. Projection and
+normalization are separate operations.
+
+\paragraph{Checkpoint.}
+The labels $1,2$ identify wavefunction arguments, not individual bosons. The
+natural physical information is therefore the number of bosons occupying each
+single-particle orbital.
