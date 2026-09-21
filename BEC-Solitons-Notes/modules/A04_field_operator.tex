@@ -1,0 +1,89 @@
+\section{A4: Field operator and density operator}
+
+For a complete orthonormal one-particle basis $\{\phi_j(\mathbf r)\}$, define
+\[
+\boxed{
+\hat\Psi(\mathbf r)=\sum_j\phi_j(\mathbf r)\hat a_j,
+\qquad
+\hat\Psi^\dagger(\mathbf r)
+=\sum_j\phi_j^*(\mathbf r)\hat a_j^\dagger.
+}
+\]
+The field operator annihilates a boson at position $\mathbf r$; it is the
+position-basis form of the mode annihilation operators.
+
+Using orthonormality gives the inverse transformation:
+\[
+\boxed{
+\hat a_i=\int d^3r\,\phi_i^*(\mathbf r)\hat\Psi(\mathbf r),
+\qquad
+\hat a_i^\dagger=\int d^3r\,\phi_i(\mathbf r)
+\hat\Psi^\dagger(\mathbf r).
+}
+\]
+
+The bosonic mode algebra and completeness imply
+\[
+\begin{aligned}
+[\hat\Psi(\mathbf r),\hat\Psi^\dagger(\mathbf r')]
+&=\sum_{ij}\phi_i(\mathbf r)\phi_j^*(\mathbf r')
+[\hat a_i,\hat a_j^\dagger]\\
+&=\sum_i\phi_i(\mathbf r)\phi_i^*(\mathbf r')\\
+&=\delta^{(3)}(\mathbf r-\mathbf r').
+\end{aligned}
+\]
+Also,
+\[
+[\hat\Psi(\mathbf r),\hat\Psi(\mathbf r')]=0,
+\qquad
+[\hat\Psi^\dagger(\mathbf r),\hat\Psi^\dagger(\mathbf r')]=0.
+\]
+
+For example,
+\[
+\hat\Psi(\mathbf r)|2,1\rangle
+=\sqrt2\,\phi_0(\mathbf r)|1,1\rangle
++\phi_1(\mathbf r)|2,0\rangle.
+\]
+Removal at a position is a superposition of removal from every occupied
+orbital that has amplitude there.
+
+The local number-density operator is
+\[
+\boxed{
+\hat n(\mathbf r)
+=\hat\Psi^\dagger(\mathbf r)\hat\Psi(\mathbf r).
+}
+\]
+For a Fock state,
+\[
+\langle\hat a_i^\dagger\hat a_j\rangle
+=n_j\delta_{ij},
+\]
+so
+\[
+\boxed{
+n(\mathbf r)=\langle\hat n(\mathbf r)\rangle
+=\sum_jn_j|\phi_j(\mathbf r)|^2.
+}
+\]
+In a completely condensed state $|N,0,\ldots\rangle$,
+\[
+n(\mathbf r)=N|\phi_0(\mathbf r)|^2.
+\]
+
+Integrating the local density recovers the total-number operator:
+\[
+\boxed{
+\hat N=\int d^3r\,
+\hat\Psi^\dagger(\mathbf r)\hat\Psi(\mathbf r)
+=\sum_j\hat a_j^\dagger\hat a_j.
+}
+\]
+Hence $[\hat\Psi]=L^{-3/2}$ in three dimensions.
+
+The operator $\hat\Psi(\mathbf r)$ must be distinguished from the later
+mean-field condensate wavefunction $\psi(\mathbf r)$. In a symmetry-breaking
+description one eventually writes
+$\psi(\mathbf r)=\langle\hat\Psi(\mathbf r)\rangle$, but this is an
+additional approximation and interpretation.
