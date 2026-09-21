@@ -1,0 +1,76 @@
+\section{A3: Creation and annihilation operators}
+
+For each orbital $j$, define operators that change its occupation:
+\[
+\hat a_j|\ldots,n_j,\ldots\rangle
+=\sqrt{n_j}|\ldots,n_j-1,\ldots\rangle,
+\]
+\[
+\hat a_j^\dagger|\ldots,n_j,\ldots\rangle
+=\sqrt{n_j+1}|\ldots,n_j+1,\ldots\rangle.
+\]
+They satisfy the bosonic algebra
+\[
+[\hat a_i,\hat a_j^\dagger]=\delta_{ij},
+\qquad
+[\hat a_i,\hat a_j]=
+[\hat a_i^\dagger,\hat a_j^\dagger]=0.
+\]
+
+Starting from $\hat a_j|0\rangle=0$, normalized number states are
+\[
+\boxed{
+|n_0,n_1,\ldots\rangle
+=\prod_j\frac{(\hat a_j^\dagger)^{n_j}}{\sqrt{n_j!}}|0\rangle.
+}
+\]
+The square roots follow from
+\[
+[\hat a,(\hat a^\dagger)^n]=n(\hat a^\dagger)^{n-1}.
+\]
+Indeed,
+\[
+\hat a|n\rangle
+=\frac{n}{\sqrt{n!}}(\hat a^\dagger)^{n-1}|0\rangle
+=\sqrt n|n-1\rangle,
+\]
+and similarly
+\[
+\hat a^\dagger|n\rangle=\sqrt{n+1}|n+1\rangle.
+\]
+
+The mode-number operator is
+\[
+\hat n_j=\hat a_j^\dagger\hat a_j,
+\qquad
+\hat n_j|\ldots,n_j,\ldots\rangle
+=n_j|\ldots,n_j,\ldots\rangle.
+\]
+Therefore the total number operator is
+\[
+\boxed{\hat N=\sum_j\hat a_j^\dagger\hat a_j.}
+\]
+
+The combination $\hat a_i^\dagger\hat a_j$ transfers a boson from orbital
+$j$ to orbital $i$:
+\[
+\hat a_i^\dagger\hat a_j
+|\ldots,n_i,\ldots,n_j,\ldots\rangle
+=\sqrt{n_j}\sqrt{n_i+1}
+|\ldots,n_i+1,\ldots,n_j-1,\ldots\rangle.
+\]
+It conserves the total particle number. Thus creation and annihilation
+operators need not describe literal production or destruction of atoms; they
+are operators for changing mode occupations.
+
+For noninteracting bosons,
+\[
+\hat H_0=\sum_j\epsilon_j\hat a_j^\dagger\hat a_j,
+\]
+so
+\[
+\hat H_0|n_0,n_1,\ldots\rangle
+=\left(\sum_j\epsilon_jn_j\right)|n_0,n_1,\ldots\rangle.
+\]
+The factor $\sqrt{n_j+1}$ in the creation amplitude is the algebraic origin of
+bosonic enhancement.
