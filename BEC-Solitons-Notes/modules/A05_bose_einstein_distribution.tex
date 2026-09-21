@@ -1,0 +1,71 @@
+\section{A5: Bose--Einstein occupation distribution}
+
+For ideal bosons,
+\[
+\hat H=\sum_j\epsilon_j\hat n_j,
+\qquad
+\hat N=\sum_j\hat n_j.
+\]
+In the grand-canonical ensemble, a Fock state has weight
+\[
+e^{-\beta(E-\mu N)}
+=\prod_j e^{-\beta(\epsilon_j-\mu)n_j},
+\qquad
+\beta=(k_BT)^{-1}.
+\]
+Thus each orbital can be treated independently.
+
+For orbital $j$, define
+\[
+q_j=e^{-\beta(\epsilon_j-\mu)}.
+\]
+Because a bosonic occupation can be $n=0,1,2,\ldots$, its partition function is
+\[
+\mathcal Z_j=\sum_{n=0}^\infty q_j^n=\frac1{1-q_j}.
+\]
+Convergence requires $q_j<1$, so
+\[
+\boxed{\mu<\epsilon_0,}
+\]
+where $\epsilon_0$ is the lowest one-particle energy.
+
+The normalized probability of occupation $n$ is
+\[
+P_j(n)=(1-q_j)q_j^n.
+\]
+Using
+\[
+\sum_{n=0}^\infty nq^n
+=q\frac{d}{dq}\frac1{1-q}
+=\frac{q}{(1-q)^2},
+\]
+the mean occupation becomes
+\[
+\begin{aligned}
+\bar n_j
+&=(1-q_j)\sum_{n=0}^\infty nq_j^n\\
+&=\frac{q_j}{1-q_j}
+=\boxed{\frac1{e^{\beta(\epsilon_j-\mu)}-1}}.
+\end{aligned}
+\]
+
+With fugacity $z=e^{\beta\mu}$,
+\[
+\boxed{
+\bar n_j=\frac1{z^{-1}e^{\beta\epsilon_j}-1}.
+}
+\]
+If $\epsilon_0=0$, then $0<z<1$ and
+\[
+N_0=\bar n_0=\frac{z}{1-z}.
+\]
+As $z\to1^-$, or equivalently $\mu\to0^-$, the ground-state occupation can
+become macroscopic.
+
+When $\beta(\epsilon_j-\mu)\gg1$,
+\[
+\bar n_j\simeq e^{-\beta(\epsilon_j-\mu)},
+\]
+recovering the classical Maxwell--Boltzmann limit. The Bose distribution by
+itself permits large low-energy occupations; condensation is established only
+after showing that the total excited-state population has a finite maximum.
