@@ -1,0 +1,106 @@
+\section{A7: One-body density matrix and coherence}
+\label{sec:A7}
+The ideal gas in A6 makes the lowest-energy orbital obvious. In an interacting or trapped gas, the condensate orbital is instead identified from the one-body density matrix. This block supplies a basis-independent bridge to the coherence and order-parameter treatments in the sources.
+
+\subsection*{Definition and natural orbitals}
+For any orthonormal one-particle basis, let
+\[
+\hat\Psi(\mathbf r)=\sum_i\phi_i(\mathbf r)\hat a_i,\qquad
+\gamma_{ij}=\langle\hat a_j^\dagger\hat a_i\rangle.
+\]
+Its position-space kernel is
+\[
+G^{(1)}(\mathbf r,\mathbf r')
+=\langle\hat\Psi^\dagger(\mathbf r')\hat\Psi(\mathbf r)\rangle
+=\sum_{ij}\phi_i(\mathbf r)\gamma_{ij}\phi_j^*(\mathbf r').
+\]
+Thus $G^{(1)}(\mathbf r,\mathbf r)=n(\mathbf r)$ and
+$\int\dd^3r\,G^{(1)}(\mathbf r,\mathbf r)=N$ (or $\langle\hat N\rangle$ for a number-fluctuating state). To see positivity, introduce
+$\hat b_f=\int\dd^3r\,f^*(\mathbf r)\hat\Psi(\mathbf r)$ for any test orbital $f$:
+\[
+\int\dd^3r\,\dd^3r'\,f^*(\mathbf r)
+G^{(1)}(\mathbf r,\mathbf r')f(\mathbf r')
+=\langle\hat b_f^\dagger\hat b_f\rangle\geq0.
+\]
+The Hermitian, positive operator has natural orbitals $\varphi_\alpha$:
+\[
+\int\dd^3r'\,G^{(1)}(\mathbf r,\mathbf r')\varphi_\alpha(\mathbf r')
+=N_\alpha\varphi_\alpha(\mathbf r),\qquad
+G^{(1)}(\mathbf r,\mathbf r')
+=\sum_\alpha N_\alpha\varphi_\alpha(\mathbf r)\varphi_\alpha^*(\mathbf r').
+\]
+With $\int|\varphi_\alpha|^2=1$, the eigenvalue is precisely the occupation
+$N_\alpha=\langle\hat b_\alpha^\dagger\hat b_\alpha\rangle$; hence
+$N_\alpha\geq0$ and $\sum_\alpha N_\alpha=N$. Condensation means that the largest eigenvalue satisfies $N_0/N\to c>0$ in an appropriate thermodynamic limit. Several eigenvalues proportional to $N$ indicate fragmentation.
+
+\subsection*{Why the off-diagonal entries matter}
+For two orthonormal orbitals $\phi_a,\phi_b$, define
+$\phi_\pm=(\phi_a\pm\phi_b)/\sqrt2$ and place all $N$ bosons in $\phi_+$. Since
+$\hat a_a=(\hat a_++\hat a_-)/\sqrt2$ and
+$\hat a_b=(\hat a_+-\hat a_-)/\sqrt2$, the $\{\phi_a,\phi_b\}$ matrix is
+\[
+\gamma=\frac N2\begin{pmatrix}1&1\\1&1\end{pmatrix},
+\quad
+\gamma\frac1{\sqrt2}\begin{pmatrix}1\\1\end{pmatrix}
+=N\frac1{\sqrt2}\begin{pmatrix}1\\1\end{pmatrix},
+\quad
+\gamma\frac1{\sqrt2}\begin{pmatrix}1\\-1\end{pmatrix}=0.
+\]
+The diagonal occupancies are both $N/2$, but the eigenvalues are $N,0$: there is one condensate orbital, $\phi_+$. By contrast the state
+$|N/2,N/2\rangle_{a,b}$ (for even $N$) has
+$\gamma=\operatorname{diag}(N/2,N/2)$, two macroscopic eigenvalues. Merely reading occupations in an arbitrarily selected basis misses the distinction.
+
+\subsection*{First-order spatial coherence}
+When $n(\mathbf r)n(\mathbf r')>0$, define
+\[
+g^{(1)}(\mathbf r,\mathbf r')
+=\frac{G^{(1)}(\mathbf r,\mathbf r')}
+{\sqrt{n(\mathbf r)n(\mathbf r')}}.
+\]
+The Cauchy--Schwarz inequality for the field correlations gives
+$|g^{(1)}|\leq1$. If all $N$ particles occupy one normalized orbital,
+$G^{(1)}(\mathbf r,\mathbf r')=N\varphi_0(\mathbf r)\varphi_0^*(\mathbf r')$.
+Writing $\varphi_0=|\varphi_0|e^{i\theta}$ yields
+$g^{(1)}(\mathbf r,\mathbf r')=e^{i[\theta(\mathbf r)-\theta(\mathbf r')]}$
+and $|g^{(1)}|=1$. The argument of $g^{(1)}$ is the relative phase; its modulus quantifies first-order coherence and, for balanced interfering fields, the fringe visibility. A partially condensed gas generally has $|g^{(1)}|<1$ at some separations.
+
+\subsection*{The uniform ideal gas: a long-distance plateau}
+In a periodic box, $\varphi_{\mathbf k}(\mathbf r)=e^{i\mathbf k\cdot\mathbf r}/\sqrt V$ and the ideal thermal state has
+$\langle\hat a^\dagger_{\mathbf k'}\hat a_{\mathbf k}\rangle
+=n_{\mathbf k}\delta_{\mathbf k\mathbf k'}$. Put
+$\mathbf s=\mathbf r-\mathbf r'$. Separating the $\mathbf k=0$ mode gives
+\[
+G^{(1)}(\mathbf s)
+=\frac{N_0}{V}
++\frac1V\sum_{\mathbf k\ne0}n_{\mathbf k}e^{i\mathbf k\cdot\mathbf s}
+\longrightarrow
+\rho_0+\int\frac{\dd^3k}{(2\pi)^3}
+\frac{e^{i\mathbf k\cdot\mathbf s}}
+{z^{-1}e^{\beta\hbar^2k^2/(2m)}-1},
+\qquad \rho_0=\frac{N_0}{V}.
+\]
+Take the thermodynamic limit before considering $|\mathbf s|\to\infty$.
+For $z<1$ the excited momentum distribution is integrable. At the condensed-gas limiting value $z=1$, its small-$k$ behaviour is proportional to $1/k^2$, still integrable in three dimensions because $\dd^3k$ brings a $k^2\dd k$ factor. At large $k$ it decays exponentially. The Fourier integral therefore vanishes as $|\mathbf s|\to\infty$ (the Riemann--Lebesgue lemma), leaving
+\[
+\boxed{\lim_{|\mathbf s|\to\infty}G^{(1)}(\mathbf s)=\rho_0},
+\qquad
+\boxed{\lim_{|\mathbf s|\to\infty}g^{(1)}(\mathbf s)=\frac{\rho_0}{\rho}}.
+\]
+Above $T_c$ the plateau is zero. For this uniform 3D ideal gas below $T_c$, A6 gives
+$\rho_0/\rho=1-(T/T_c)^{3/2}$. The ideal-gas long-distance plateau is the simplest example of off-diagonal long-range order. These particular formulas rely on three-dimensional translation invariance and the ideal-gas distribution; a finite trapped or quasi-one-dimensional gas needs its own coherence analysis.
+
+\subsection*{Fixed particle number and the next block}
+A condensate does not require a nonzero field expectation in a fixed-number description. For
+$|N:\varphi_0\rangle=(\hat b_0^\dagger)^N|0\rangle/\sqrt{N!}$,
+\[
+\langle N:\varphi_0|\hat\Psi(\mathbf r)|N:\varphi_0\rangle=0,
+\]
+since annihilation leads to the orthogonal $(N-1)$-particle sector, whereas
+\[
+G^{(1)}(\mathbf r,\mathbf r')
+=N\varphi_0(\mathbf r)\varphi_0^*(\mathbf r').
+\]
+The next block explains how the broken-$U(1)$, phase-selected description uses an order parameter $\psi=\langle\hat\Psi\rangle$ without contradicting this fixed-$N$ result.
+
+\paragraph{Source connection.}
+Matthias S\"ohn, \emph{Solitons in Bose--Einstein Condensates}, Section 4.3.1, introduces $g^{(1)}$ and spatial coherence for the later soliton correlations; R. Balakrishnan and I. I. Satija, Section 2.1, use a broken-symmetry condensate order parameter. The natural-orbital criterion and uniform-gas Fourier derivation here supply the explicit bridge between those discussions and the ideal gas in A6.
