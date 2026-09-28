@@ -1,0 +1,82 @@
+\section{A6: Excited-state saturation and the critical temperature}
+Consider an ideal, uniform, three-dimensional Bose gas with one internal component, in a large periodic box of volume $V$. Set the ground-state energy to zero and write $\rho=N/V$.
+
+\subsection*{Counting the excited states}
+Each allowed wave vector occupies volume $(2\pi)^3/V$ in wave-vector space. Thus the number of states inside a sphere of radius $k$ is
+\[
+\mathcal N(k)=\frac{V}{(2\pi)^3}\frac{4\pi k^3}{3}
+=\frac{Vk^3}{6\pi^2}.
+\]
+Since $\epsilon=\hbar^2k^2/(2m)$,
+\[
+\mathcal N(\epsilon)=\frac{V}{6\pi^2}
+\left(\frac{2m}{\hbar^2}\right)^{3/2}\epsilon^{3/2},
+\qquad
+D(\epsilon)=\frac{\dd\mathcal N}{\dd\epsilon}
+=\frac{V}{4\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}\sqrt{\epsilon}.
+\]
+The continuum density of states describes the bulk excited population; keep the single ground state separately.
+
+\subsection*{Evaluating the excited population}
+Let $\beta=(k_BT)^{-1}$ and $z=e^{\beta\mu}<1$. Then
+\[
+N=N_0+N_{\rm ex},\qquad N_0=\frac{z}{1-z},
+\qquad
+N_{\rm ex}=\int_0^\infty
+\frac{D(\epsilon)\,\dd\epsilon}{z^{-1}e^{\beta\epsilon}-1}.
+\]
+Use the geometric series
+\[
+\frac{1}{z^{-1}e^{\beta\epsilon}-1}
+=\frac{ze^{-\beta\epsilon}}{1-ze^{-\beta\epsilon}}
+=\sum_{\ell=1}^\infty z^\ell e^{-\ell\beta\epsilon}.
+\]
+All terms are nonnegative, so the sum and integral can be interchanged. With $x=\ell\beta\epsilon$,
+\[
+\int_0^\infty \sqrt{\epsilon}\,e^{-\ell\beta\epsilon}\dd\epsilon
+=(\ell\beta)^{-3/2}\int_0^\infty x^{1/2}e^{-x}\dd x
+=\frac{\sqrt{\pi}}{2(\ell\beta)^{3/2}}.
+\]
+Consequently,
+\[
+N_{\rm ex}=\frac{V}{\lambda_T^3}g_{3/2}(z),
+\quad
+\lambda_T=\sqrt{\frac{2\pi\hbar^2}{mk_BT}},
+\quad
+g_s(z)=\sum_{\ell=1}^\infty\frac{z^\ell}{\ell^s}.
+\]
+
+\subsection*{Saturation and condensation}
+As $z\to1^-$, $g_{3/2}(z)\to\zeta(3/2)\simeq2.612$. The maximum bulk equilibrium excited density at temperature $T$ is therefore
+\[
+\rho_{\rm ex}^{\max}(T)=\frac{\zeta(3/2)}{\lambda_T^3}.
+\]
+This is a bound on the equilibrium excited population at fixed temperature, not an occupancy limit on any individual bosonic orbital. At fixed total density, the excess particles occupy the ground state macroscopically. The onset satisfies
+\[
+\rho=\frac{\zeta(3/2)}{\lambda_{T_c}^3}
+\quad\Longrightarrow\quad
+\boxed{T_c=\frac{2\pi\hbar^2}{mk_B}
+\left[\frac{\rho}{\zeta(3/2)}\right]^{2/3}}.
+\]
+Below $T_c$, in the thermodynamic limit, $\mu\to0^-$ and
+\[
+\frac{N_{\rm ex}}{N}
+=\frac{\lambda_{T_c}^3}{\lambda_T^3}
+=\left(\frac{T}{T_c}\right)^{3/2},
+\qquad
+\boxed{\frac{N_0}{N}=1-\left(\frac{T}{T_c}\right)^{3/2}}.
+\]
+For finite $N_0$, $\mu$ remains negative: $z=N_0/(N_0+1)$. Setting $\mu=0$ describes the limiting excited-state integral, not a finite ground-state occupation in the Bose distribution.
+
+\subsection*{Physical interpretation and dimensional scope}
+At the transition, $\rho\lambda_{T_c}^3=\zeta(3/2)$: the thermal wavelength is comparable to the mean spacing $\rho^{-1/3}$. This gives an intuitive measure of quantum degeneracy.
+
+For a uniform ideal gas in $d$ dimensions, $D(\epsilon)\propto\epsilon^{d/2-1}$. Near zero energy at $\mu=0$,
+\[
+\frac{D(\epsilon)}{e^{\beta\epsilon}-1}
+\propto \epsilon^{d/2-2},
+\]
+because $e^{\beta\epsilon}-1\simeq\beta\epsilon$. The integral at its lower endpoint converges precisely when $d/2-2>-1$, or $d>2$. Thus a uniform ideal gas has no finite-temperature bulk condensation in $d\le2$. Finite trapped and quasi-one-dimensional gases require separate treatment of geometry, size and coherence.
+
+\paragraph{Source connection.}
+This block develops the ideal-gas discussion in Matthias S\"ohn's thesis, Section 2.1 (printed pages 4--6), as preparation for the interacting condensate and soliton formalism.
