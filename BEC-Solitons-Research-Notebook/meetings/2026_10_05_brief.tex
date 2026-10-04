@@ -1,0 +1,82 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=0.83in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[hidelinks]{hyperref}
+\title{BEC Solitons: Meeting Brief for 5 October 2026}
+\author{Kshitij}
+\date{}
+\begin{document}
+\maketitle
+
+\noindent\textbf{Question for the meeting.} How do low-energy collisions lead from a many-boson Hamiltonian to a one-dimensional equation with localized bright or dark waves? This is an accelerated orientation, not a replacement for the B--D derivations in the learning roadmap.
+
+\paragraph{1. Scattering enters through one number.}
+For dilute, ultracold atoms, low-energy $s$-wave scattering has amplitude $f(k\to0)=-a$, where $a$ is the scattering length. At the mean-field level it gives the effective coupling $g_{3D}=4\pi\hbar^2a/m$. The contact term below represents low-energy scattering; in three dimensions a bare delta potential requires proper regularization in a two-body treatment. The second-quantized Hamiltonian is
+\[
+\hat H=\int d^3r\left[\hat\Psi^\dagger\left(-\frac{\hbar^2\nabla^2}{2m}+V\right)\hat\Psi
++\frac{g_{3D}}2\hat\Psi^\dagger\hat\Psi^\dagger\hat\Psi\hat\Psi\right].
+\]
+The exact Heisenberg equation following from $[\hat\Psi(\mathbf r),\hat\Psi^\dagger(\mathbf r')]=\delta(\mathbf r-\mathbf r')$ is
+\[
+i\hbar\partial_t\hat\Psi=\left(-\frac{\hbar^2\nabla^2}{2m}+V\right)\hat\Psi
++g_{3D}\hat\Psi^\dagger\hat\Psi\hat\Psi.
+\]
+For a highly occupied condensate write $\hat\Psi=\psi+\delta\hat\Psi$ in a phase-selected description and neglect correlations involving $\delta\hat\Psi$ at leading order. This gives the Gross--Pitaevskii equation (GPE)
+\[
+\boxed{i\hbar\partial_t\psi=\left(-\frac{\hbar^2\nabla^2}{2m}+V+g_{3D}|\psi|^2\right)\psi},
+\qquad \int d^3r\,|\psi|^2\simeq N_0.
+\]
+Its cubic term reflects the interaction energy per particle, proportional to the local condensate density. The replacement neglects depletion and correlations, which matter again in the later parts of both sources. The fixed-$N$ formulation of A7 can use a macroscopically occupied orbital without requiring $\langle\hat\Psi\rangle\ne0$.
+
+\paragraph{2. Confine the transverse directions.}
+In a tight radial harmonic trap, take
+\[
+\psi(\mathbf r,t)=\varphi_\perp(y,z)\psi_{1D}(x,t),\qquad
+\int d^2r_\perp|\varphi_\perp|^2=1.
+\]
+Multiplying the 3D equation by $\varphi_\perp^*$ and integrating over $y,z$, then removing the constant transverse ground-state energy by an overall phase, yields
+\[
+i\hbar\partial_t\psi_{1D}=\left[-\frac{\hbar^2}{2m}\partial_x^2+V_x(x)+g_{1D}|\psi_{1D}|^2\right]\psi_{1D},
+\quad g_{1D}=g_{3D}\int d^2r_\perp|\varphi_\perp|^4.
+\]
+For the transverse oscillator ground state, $a_\perp=\sqrt{\hbar/(m\omega_\perp)}$ and $|\varphi_\perp|^2=(\pi a_\perp^2)^{-1}e^{-r_\perp^2/a_\perp^2}$, so
+\[
+\int d^2r_\perp|\varphi_\perp|^4=\frac1{2\pi a_\perp^2},\qquad
+\boxed{g_{1D}=2\hbar\omega_\perp a}.
+\]
+This weak-scattering reduction requires the relevant axial thermal and interaction energies to be small compared with $\hbar\omega_\perp$, and $|a|\ll a_\perp$. In a free axial region set $V_x=0$. Here $|\psi_{1D}|^2$ has units of line density, and $\int dx\,|\psi_{1D}|^2\simeq N_0$ for a localized cloud.
+
+\paragraph{3. The sign decides the soliton type.}
+Write $\psi_{1D}(x,t)=f(x)e^{-i\mu t/\hbar}$. For a real stationary profile the 1D GPE becomes
+\[
+\mu f=-\frac{\hbar^2}{2m}f''+g_{1D}f^3.\tag{*}
+\]
+For attraction, put $g_{1D}=-G$ with $G>0$ and try $f=A\,\mathrm{sech}(x/L)$. Since
+\[
+f''=\frac f{L^2}-\frac{2f^3}{A^2L^2},
+\]
+matching the coefficients of $f$ and $f^3$ in (*) gives $\mu=-\hbar^2/(2mL^2)$ and $A^2=\hbar^2/(mGL^2)$. Normalization $N_0=\int f^2dx=2A^2L$ fixes
+\[
+\boxed{f_{\rm bright}(x)=\sqrt{\frac{N_0}{2L}}\,\mathrm{sech}(x/L),\qquad
+L=\frac{2\hbar^2}{mGN_0}}.
+\]
+The density is peaked against a zero background. Free space and the effective 1D model are assumed; moving solutions follow by a Galilean boost.
+
+For repulsion, $g_{1D}>0$, take a uniform background of line density $n_0$, so $\mu=g_{1D}n_0$. Try $f=\sqrt{n_0}\tanh(x/L)$. Now
+\[
+f''=-\frac{2f}{L^2}+\frac{2f^3}{n_0L^2},
+\]
+and equation (*) holds for
+\[
+\boxed{f_{\rm dark}(x)=\sqrt{n_0}\tanh\!\left(\frac{x}{\sqrt2\,\xi}\right),\qquad
+\xi=\frac{\hbar}{\sqrt{2mg_{1D}n_0}}}.
+\]
+It approaches $\pm\sqrt{n_0}$ on either side: its density has a zero at the centre and its phase changes by $\pi$. The background is idealized as infinite, so its total particle number is not the finite $N_0$ used for the bright solution. For a moving grey soliton the dip becomes shallower, and the relevant sound speed is $c=\sqrt{g_{1D}n_0/m}$.
+
+\paragraph{What to discuss with the professor.}
+The shared route through the PDFs is scattering length $\to$ GPE $\to$ transverse reduction $\to$ bright/dark solitons. Clarify which subsequent branch matters for the project: S\"ohn's thesis studies the attractive gas beyond mean field using Bethe states and correlations (Chapter 4); Balakrishnan--Satija use a hard-core-boson/Bose--Hubbard setting and persistent solitons (Sections 5--8). These are different extensions of the GPE story.
+
+\paragraph{Source map.}
+S\"ohn, \emph{Solitons in Bose--Einstein Condensates}: Sections 2.2.2--2.2.3 cover scattering, the contact Hamiltonian, and the GPE; Sections 3.2.1--3.2.2 cover quasi-1D solitons; Chapter 4 studies many-body effects. Balakrishnan and Satija, \emph{Solitons in Bose--Einstein condensates}: Sections 2--4 cover GPE solitons and Sections 5--8 hard-core bosons. The sech and tanh substitutions above are worked explicitly for the meeting.
+
+\end{document}
