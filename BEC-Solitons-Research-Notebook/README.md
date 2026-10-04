@@ -4,8 +4,8 @@ This folder records derivations, computations, reproducible benchmarks, and rese
 
 The separate [learning notebook](../BEC-Solitons-Notes/) contains the A–E lessons. Learning progress and research results have different checkpoints. Plots marked *preliminary* reproduce model predictions and are not original findings.
 
-- `main.tex`: short opening roadmap, compiled with `pdflatex main.tex` from this folder.
-- `workflow.tex`: one-question learning cards, grouped into small research results. Start at card 0.1.
+- `main.tex` and `current_card.tex`: the single active card, compiled with `pdflatex main.tex` from this folder. Start at card 0.1.
+- `full_plan.tex` and `workflow.tex`: the complete map of one-question cards, compiled with `pdflatex full_plan.tex` when needed. It is separate from the opening page.
 - `working/`: longer derivations in progress. R1 currently collects the scattering-length coupling, many-boson Hamiltonian, and quasi-1D reduction; read it in pieces as cards 1.1–1.6 are understood.
 - `previews/`: preliminary reproductions. P0 checks moving GPE propagation; P1 compares the two source-specific branches. These are separate from the opening roadmap.
 - `results/`: verified result entries R1–R13 will be added here as the derivations and checks are completed.
