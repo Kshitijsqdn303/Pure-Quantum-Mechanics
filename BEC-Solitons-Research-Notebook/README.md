@@ -6,6 +6,7 @@ The separate [learning notebook](../BEC-Solitons-Notes/) contains the A–E less
 
 - `main.tex`: standalone research notebook, compiled with `pdflatex main.tex` from this folder.
 - `workflow.tex`: sequence of research entries R1–R13, with sources, outputs, and verification gates.
+- `working/`: derivations in progress. R1 currently develops the scattering-length coupling, many-boson Hamiltonian, and quasi-1D reduction.
 - `previews/`: preliminary reproductions. P0 checks moving GPE propagation; P1 compares the two source-specific branches.
 - `results/`: verified result entries R1–R13 will be added here as the derivations and checks are completed.
 - `benchmarks/gpe_soliton_benchmarks.py`: reproducible Python script using NumPy and Matplotlib. Run from this folder with `python benchmarks/gpe_soliton_benchmarks.py`; it writes both SVG and PNG figures next to the script and prints numerical diagnostics.
