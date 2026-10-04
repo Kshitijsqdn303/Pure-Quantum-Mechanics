@@ -1,39 +1,85 @@
-\section{Research workflow and result sequence}
+\section{Research workflow: one question at a time}
 
-This is a separate notebook for calculations, numerical checks, and research questions arising from the two supplied PDFs. The pedagogical A--E lessons remain in \texttt{BEC-Solitons-Notes/}. A result here can cite a learning module as preparation, but no research entry counts as a lesson completed by the student.
+Our destination is to understand and reproduce soliton results from S\"ohn's thesis and the paper by Balakrishnan and Satija. A learning session is \emph{one card}: one physical question, one new equation or algebraic step, one small check. If the step is unclear, we stay with it. The stage names below are a map, not a request to cover a stage in one sitting.
 
-\subsection{One result at a time}
-Every result entry has the same six pieces: (1) a question and source location; (2) the Hamiltonian, approximation, normalization, and boundary conditions; (3) a derivation with reproducible intermediate steps; (4) a calculation or simulation, with code and figure; (5) a check independent of the plotted formula, such as units, asymptotics, a conservation law, or grid refinement; and (6) an interpretation, limitation, and next question. We label an entry \emph{previewed}, \emph{derived}, \emph{numerically checked}, or \emph{discussed}. These labels record different kinds of progress rather than an implied claim of novelty.
+The separate \texttt{BEC-Solitons-Notes/} folder holds the accepted teaching notes. This notebook holds calculations and evidence: assumptions, derivation, code or plot, an independent check, and what the result means. A research result is assembled only after its small prerequisite cards make sense to the student. We will not count an existing plot as understood simply because code can produce it.
 
-\subsection{Current previews}
-P0 is a moving-bright GPE propagation with an exact-profile check (Section~\ref{sec:P00}); P1 is a two-source algebraic comparison (Section~\ref{sec:P01}). They are already reproducible but have not passed the student's derivation checkpoints. When a preview is independently derived and verified, promote the underlying claim into its corresponding R-entry; preserve the original numbers as an audit trail.
-
-\subsection{Common GPE baseline}
-\begin{enumerate}[label=R\arabic*.,leftmargin=2.2em]
-\item \textbf{Model and regime:} derive $g_{3D}=4\pi\hbar^2a/m$ from low-energy scattering and $g_{1D}=2\hbar\omega_\perp a$ by integrating out the transverse oscillator ground state. State exactly when the contact and quasi-1D approximations apply. Output: dimension-checked equations and regime chart. Sources: S\"ohn Sections 2.2--3.2; Balakrishnan--Satija Sections 2--3.
-\item \textbf{Excitations:} linearize about a uniform condensate, derive $(\hbar\omega)^2=\epsilon_k(\epsilon_k+2g_{1D}n_0)$, and obtain sound speed $c$ and healing length $\xi$. Output: dispersion and limiting-case check, including instability for an attractive uniform background. Learning dependencies: C1--C4.
-\item \textbf{Attractive GPE family:} calculate a bright soliton's norm, width, chemical potential, energy, and Galilean boost. Output: a parameter sweep for width versus $|g_{1D}|N$ and an energy check against the functional. Learning dependencies: D1--D2.
-\item \textbf{Repulsive GPE family:} derive dark and grey solutions. Output: plotted density and phase, $n_{\min}/n_0=(v/c)^2$, phase jump, width, and energy as functions of velocity. Learning dependencies: D1, D3--D4.
-\item \textbf{Dynamics and reproducibility:} extend preview P0 to grid and time-step convergence; then try a controlled perturbation or two-soliton collision. Output: code, figure, error table, and carefully stated boundary conditions. Learning dependency: D5.
+\subsection{Card 0: Know what equation we are studying}
+\begin{enumerate}[label=0.\arabic*.,leftmargin=2.5em]
+\item \textbf{Next:} Identify $\psi(x,t)$ and $|\psi|^2$ in the 1D GPE. Check their physical units and normalization. No derivation from atoms yet.
+\item Remove interactions ($g_{1D}=0$) and ask why a localized wave packet spreads. Estimate the time scale from its width.
+\item Restore $g_{1D}|\psi|^2\psi$ and examine the phase of a uniform solution. Interpret the sign of $g_{1D}$.
+\item Compare the boundary conditions: a bright peak approaches zero density; a dark notch approaches a nonzero background.
 \end{enumerate}
+\noindent\emph{Small output:} a one-page diagram of the model and its two types of boundary condition. This conceptual card comes before further projection integrals.
 
-\subsection{S\"ohn branch: what changes beyond mean field?}
-\begin{enumerate}[label=R\arabic*.,leftmargin=2.2em]
-\setcounter{enumi}{5}
-\item Derive the $N$-particle Hartree ansatz and the $N-1$ factor in the orbital equation. Compute its finite-$N$ energy with the actual pair count $N(N-1)/2$ before comparing to any GPE formula. Source: S\"ohn Section 4.1.
-\item Solve the attractive delta-gas bound cluster, derive $E_{\rm Bethe}(N,P)=P^2/(2Nm)-mg_{1D}^2N(N^2-1)/(24\hbar^2)$, and compare its large-$N$ binding to GPE. The preliminary algebraic comparison is in preview P1. Source: S\"ohn Section 4.2.
-\item Superpose Bethe momentum eigenstates to localize the centre of mass, calculate its subsequent spread, and distinguish this from the stationary mean-field profile. Source: S\"ohn Sections 4.2.1--4.2.2.
-\item Examine $G^{(1)}(x,x')$ and density correlations for a localized soliton state. Output: a comparison of what density and coherence each reveal. Source: S\"ohn Section 4.3.
+\subsection{Card 1: Where does the 1D model come from?}
+\begin{enumerate}[label=1.\arabic*.,leftmargin=2.5em]
+\item Recall the single low-energy scattering statement $f_0(0)=-a$, then relate $a$ to $g_{3D}$. State the conditions for using it.
+\item Count pairs in the bosonic Hamiltonian to explain the interaction factor $1/2$.
+\item Use one occupied orbital to reach the GPE; identify the approximation and the $N-1$ versus $N$ step.
+\item Normalize the transverse oscillator ground state in a cigar-shaped trap.
+\item Evaluate just $\int d^2\rho\,|\phi_\perp|^4$; from it obtain $g_{1D}=2\hbar\omega_\perp a$ and check units.
+\item Compare axial interaction energy with the transverse excitation gap to state the regime of the reduction.
 \end{enumerate}
+\noindent\emph{Research output R1:} a derivation and regime sheet, using S\"ohn Sections 2.2--3.2 and Balakrishnan--Satija Sections 2--3. The previously drafted \texttt{working/R01\_model\_and\_reduction.tex} contains these steps in one place; it is a reference to revisit card by card, not assigned reading all at once.
 
-\subsection{Balakrishnan--Satija branch: what changes for hard-core bosons?}
-\begin{enumerate}[label=R\arabic*.,leftmargin=2.2em]
-\setcounter{enumi}{9}
-\item Take the hard-core limit of the extended Bose--Hubbard model and establish its on-site spin-$\tfrac12$ mapping. Output: commutator and occupancy table. Source: Section 5.1.
-\item Work in the paper's spin-coherent approximation and derive $\rho_s=|\langle b\rangle|^2=\rho(1-\rho)$. Output: a particle--hole symmetry plot. The preliminary source comparison is in preview P1. Source: Section 5.2.
-\item Derive the effective nonlinear evolution and compare dark and antidark profiles of particle density and order-parameter density. Output: a figure reproducing a selected paper result. Sources: Sections 6--7.
-\item Trace the persistent-soliton condition and energy--momentum dispersion; compare particle and hole descriptions. Output: a checked $E(P)$ curve and the regime where it applies. Sources: Sections 7--8.
+\subsection{Card 2: What length and speed matter?}
+\begin{enumerate}[label=2.\arabic*.,leftmargin=2.5em]
+\item Find the uniform condensate's phase evolution and its chemical potential.
+\item Write a small perturbation and its complex-conjugate partner; explain why both occur.
+\item Solve the resulting two-by-two system for $\omega(k)$.
+\item Take the small-$k$ limit to obtain the sound speed $c$.
+\item Balance kinetic and interaction energies to obtain the healing length $\xi$; compare it with the dispersion crossover.
 \end{enumerate}
+\noindent\emph{Research output R2:} a labelled dispersion curve and its limiting-case checks (Balakrishnan--Satija Section 3.1).
 
-\subsection{Meeting and progress protocol}
-For the 5 October meeting, take the model chain, the current GPE figure and numerical check, and the two source-specific questions as explicitly preliminary results. Ask which physical regime and open question the professor wants emphasized first. Both branches remain in this notebook; that choice determines order and depth. After each session, update the relevant R-entry, its script and plot, a short assumptions ledger, and a two-sentence explanation suitable for a supervisor meeting. The companion learning notebook handles the detailed teaching at its original slow pace.
+\subsection{Card 3: Build the bright soliton}
+\begin{enumerate}[label=3.\arabic*.,leftmargin=2.5em]
+\item Use a stationary ansatz and zero-density boundary conditions to get one ordinary differential equation.
+\item Substitute a $\operatorname{sech}$ profile; verify the coefficients without skipping derivatives.
+\item Normalize the profile and extract its width and chemical potential.
+\item Evaluate its energy and then apply a Galilean boost to make it move.
+\end{enumerate}
+\noindent\emph{Research output R3:} analytic shape, width and energy versus interaction strength (S\"ohn Section 3.2.2; Balakrishnan--Satija Section 4.2).
+
+\subsection{Card 4: Build the dark and grey solitons}
+\begin{enumerate}[label=4.\arabic*.,leftmargin=2.5em]
+\item Set a nonzero density at infinity; verify the stationary $\tanh$ profile.
+\item Read its phase on both sides and obtain the $\pi$ jump.
+\item Add motion; calculate notch depth and width from $v/c$.
+\item Calculate the grey phase jump and excitation energy relative to the uniform background.
+\end{enumerate}
+\noindent\emph{Research output R4:} density, phase, depth and energy plots with the background specified (article Section 4.1).
+
+\subsection{Card 5: Check motion computationally}
+\begin{enumerate}[label=5.\arabic*.,leftmargin=2.5em]
+\item Understand one kinetic/nonlinear split-step update.
+\item Check norm and energy in one run against an analytic travelling solution.
+\item Refine space and time separately, recording shape error in a small table.
+\item Only then explore a perturbation or a collision.
+\end{enumerate}
+\noindent\emph{Research output R5:} reproducible simulation and convergence evidence. The current moving-bright figure under \texttt{previews/P00\_gpe\_benchmark.tex} is preparatory; its existing error number is for one grid and one time step.
+
+\subsection{Card 6: S\"ohn's many-body branch}
+\begin{enumerate}[label=6.\arabic*.,leftmargin=2.5em]
+\item Derive the Hartree $N-1$ factor from the number of partners.
+\item Solve the two-body attractive delta problem and its derivative jump.
+\item Read the $N$-body Bethe bound-state construction and derive its energy.
+\item Give the cluster a centre-of-mass wavepacket and calculate its spreading.
+\item Examine first-order coherence $G^{(1)}(x,x')$ of a localized quantum state.
+\end{enumerate}
+\noindent\emph{Research outputs R6--R9:} finite-$N$ energy comparison, spreading, and correlation results (S\"ohn Chapter 4). The existing Bethe energy ratio in preview P1 is an algebraic guide, not a completed Bethe derivation.
+
+\subsection{Card 7: Balakrishnan--Satija's hard-core branch}
+\begin{enumerate}[label=7.\arabic*.,leftmargin=2.5em]
+\item Enforce at most one particle per lattice site and work out the on-site algebra.
+\item Map the two local states to a spin-$\tfrac12$ and check the density convention.
+\item Evaluate $\langle b\rangle$ in a spin-coherent state to obtain $\rho_s=\rho(1-\rho)$.
+\item Work through one dark and one antidark profile, comparing particle and order-parameter density.
+\item Determine what makes the paper's persistent soliton persistent and check its energy versus momentum curve.
+\end{enumerate}
+\noindent\emph{Research outputs R10--R13:} hard-core mapping, density relations, and source-matched dispersions (Balakrishnan--Satija Sections 5--8). The curve in preview P1 belongs to the spin-coherent approximation.
+
+\subsection{How progress is recorded}
+For every card: answer the question in plain language, reproduce its algebra, perform one limiting or units check, and only then update the relevant working note. After a set of cards yields a reproducible calculation, save the research result with the source section, code, figure, and remaining limitation. The two preview figures and the long R1 draft remain available but are kept out of this notebook's opening pages. For the upcoming meeting we may show them as preliminary reproductions while being explicit about which derivations we have personally worked through.
