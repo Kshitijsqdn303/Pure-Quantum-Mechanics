@@ -109,8 +109,39 @@ def make_figure(output):
     return results
 
 
+def make_source_branches_figure(output):
+    """Two source-specific checks: Bethe binding and HCB coherent-state density."""
+    fig, axes = plt.subplots(1, 2, figsize=(10, 3.8), constrained_layout=True)
+    n = np.arange(2, 31)
+    axes[0].plot(n, 1 - 1 / n**2, "o-", ms=3.5)
+    axes[0].axhline(1, color="0.45", ls="--", lw=1)
+    axes[0].set(
+        xlabel=r"particle number $N$",
+        ylabel=r"$E_{\rm Bethe}/E_{\rm GP}$",
+        ylim=(0.72, 1.02),
+        title="Söhn: exact binding / leading GP binding",
+    )
+    rho = np.linspace(0, 1, 250)
+    axes[1].plot(rho, rho * (1 - rho), label=r"$\rho_s=\rho(1-\rho)$")
+    axes[1].plot(rho, rho, "--", label=r"total filling $\rho$")
+    axes[1].set(
+        xlabel=r"total filling $\rho$",
+        ylabel=r"density per site",
+        xlim=(0, 1),
+        ylim=(0, 1.02),
+        title="Balakrishnan–Satija: HCB coherent-state result",
+    )
+    axes[1].legend(fontsize=9)
+    fig.savefig(output, format="svg")
+    fig.savefig(output.with_suffix(".png"), dpi=170)
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     output = Path(__file__).with_name("gpe_soliton_benchmarks.svg")
     for name, value in make_figure(output).items():
         print(f"{name}: {value:.10g}")
     print(f"figure: {output}")
+    branches = output.with_name("source_branches.svg")
+    make_source_branches_figure(branches)
+    print(f"figure: {branches}")
