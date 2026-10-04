@@ -1,0 +1,74 @@
+\section{Working R1: From scattering length to the quasi-1D model}
+\label{sec:working-R1}
+\noindent\textbf{Status:} working derivation. Scattering and transverse reduction have been written out; the student's independent derivation and regime checks are the next checkpoint. This reproduces an established effective model.
+
+\paragraph{Low-energy parameter.}
+For two equal-mass atoms the relative mass is $m/2$, and outside a short-range interaction the zero-energy $s$-wave obeys $u''(r)=0$ for $u=r\psi$. Normalizing to $\psi\to1$ gives $\psi(r)=1-a/r$. Equivalently,
+\[
+f_0(k)=\frac1{k\cot\delta_0-ik},\qquad
+k\cot\delta_0=-\frac1a+O(k^2),\qquad f_0(0)=-a.
+\]
+An effective short-range vertex matched to this low-energy amplitude has $g_{3D}=4\pi\hbar^2 a/m$. This is a matching condition on the low-energy scattering amplitude. A bare three-dimensional delta potential used as an exact two-body Hamiltonian needs regularization. For a hard sphere, $\psi(R)=0$ gives $a=R$. The regime requires low collision momentum on the potential-range scale and a dilute gas; a weakly interacting GPE additionally assumes $n|a|^3\ll1$ away from a strong-resonance regime.
+
+\paragraph{Many-boson Hamiltonian and the pair count.}
+Let $h_0=-\hbar^2\nabla^2/(2m)+V(\mathbf r)$. With a contact interaction the effective field Hamiltonian is
+\[
+\hat H=\int d^3r\,\hat\Psi^\dagger h_0\hat\Psi
++\frac{g_{3D}}2\int d^3r\,\hat\Psi^\dagger\hat\Psi^\dagger\hat\Psi\hat\Psi.
+\]
+The factor $1/2$ avoids counting both orders of a particle pair. For the number-conserving Hartree state with all $N$ particles in an orbital $\varphi$ normalized to one, the expectation is
+\[
+E[\varphi]=N\int\!d^3r\,\varphi^*h_0\varphi
++\frac{g_{3D}}2N(N-1)\int\!d^3r\,|\varphi|^4.
+\]
+Indeed, the condensate-mode operator obeys
+$\langle N|\hat a^\dagger\hat a^\dagger\hat a\hat a|N\rangle=N(N-1)$.
+With $\psi=\sqrt N\,\varphi$ and $\int|\psi|^2d^3r=N$, the exact Hartree functional has quartic coefficient $g_{3D}(1-1/N)/2$. In the large-$N$ mean-field approximation this becomes
+\[
+E_{\rm GP}[\psi]=\int d^3r\left[
+\frac{\hbar^2}{2m}|\nabla\psi|^2+V|\psi|^2
++\frac{g_{3D}}2|\psi|^4\right].
+\]
+Its functional derivative is
+$\delta E_{\rm GP}/\delta\psi^*=[-\hbar^2\nabla^2/(2m)+V+g_{3D}|\psi|^2]\psi$.
+The standard time-dependent variational action gives
+\[
+i\hbar\partial_t\psi=\left[-\frac{\hbar^2}{2m}\nabla^2+V+g_{3D}|\psi|^2\right]\psi.
+\]
+The fixed-number Hartree orbital can be used here even though a strict number state has $\langle\hat\Psi\rangle=0$; interpreting $\psi$ as a phase-selected field is an alternative leading-order description. The discarded fluctuations and $1/N$ effect are recorded assumptions.
+
+\paragraph{Projection onto the transverse oscillator ground state.}
+Write $\mathbf r=(x,\boldsymbol\rho)$, with
+$V(x,\boldsymbol\rho)=V_x(x)+m\omega_\perp^2\rho^2/2$.
+When transverse excitations are frozen, use
+\[
+\psi(\mathbf r,t)=\phi_\perp(\boldsymbol\rho)\psi_{1D}(x,t),\qquad
+\phi_\perp(\boldsymbol\rho)=\frac1{\sqrt\pi a_\perp}e^{-\rho^2/(2a_\perp^2)},\qquad
+a_\perp=\sqrt{\frac\hbar{m\omega_\perp}}.
+\]
+The normalization $\int d^2\rho\,|\phi_\perp|^2=1$ implies
+$\int dx\,|\psi_{1D}|^2=N$; $|\psi_{1D}|^2$ is a line density. Multiply the 3D GPE by $\phi_\perp^*$, integrate over $\boldsymbol\rho$, and use the 2D oscillator ground energy $\varepsilon_\perp=\hbar\omega_\perp$. The nonlinear term contributes
+\[
+g_{1D}=g_{3D}\int d^2\rho\,|\phi_\perp|^4,
+\qquad
+\int d^2\rho\,|\phi_\perp|^4
+=\frac{2\pi}{\pi^2 a_\perp^4}
+\int_0^\infty\rho e^{-2\rho^2/a_\perp^2}d\rho
+=\frac1{2\pi a_\perp^2}.
+\]
+Here the radial integral equals $a_\perp^2/4$. Consequently,
+\[
+\boxed{g_{1D}=\frac{g_{3D}}{2\pi a_\perp^2}
+=\frac{2\hbar^2a}{ma_\perp^2}=2\hbar\omega_\perp a}.
+\]
+The projected equation includes $\varepsilon_\perp\psi_{1D}$; removing this constant via $\psi_{1D}=e^{-i\varepsilon_\perp t/\hbar}\Phi$ leaves
+\[
+\boxed{i\hbar\partial_t\Phi=
+\left[-\frac{\hbar^2}{2m}\partial_x^2+V_x(x)+g_{1D}|\Phi|^2\right]\Phi},
+\qquad \int dx\,|\Phi|^2=N.
+\]
+The units are $[g_{3D}]=\mathrm{energy}\cdot\mathrm{length}^3$ and
+$[g_{1D}]=\mathrm{energy}\cdot\mathrm{length}$. Compression increases the local interaction strength because $\int|\phi_\perp|^4\propto a_\perp^{-2}$. For the simple formula above require $|a|\ll a_\perp$ and relevant axial, interaction, and thermal energies small compared with $\hbar\omega_\perp$; otherwise transverse modes and confinement-modified scattering matter. If the axial orbital is normalized to one instead, $\Phi=\sqrt N\,\varphi_x$, its cubic coefficient is $Ng_{3D}/(2\pi a_\perp^2)$, matching S\"ohn's Equation (3.11) with $A_\perp=2\pi a_\perp^2$.
+
+\paragraph{Source and next check.}
+S\"ohn Sections 2.2.2--2.2.3 and 3.2.1; Balakrishnan--Satija Sections 2--3. Next derive the transverse quartic integral without looking, verify the 1D units, and state when the transverse Gaussian is allowed to remain fixed. The sound speed and healing length are the next scale calculation for a repulsive uniform background.
