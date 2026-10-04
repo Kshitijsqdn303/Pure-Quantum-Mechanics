@@ -1,0 +1,71 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=0.83in]{geometry}
+\usepackage{amsmath,amssymb}
+\title{BEC Solitons: Concrete Results Agenda}
+\author{Kshitij}
+\date{5 October 2026}
+\begin{document}
+\maketitle
+
+These are reproducible benchmarks and calculations to take to the meeting, followed by two source-specific research directions. Equations in this document use the free-axial 1D GPE $i\hbar\psi_t=-\hbar^2\psi_{xx}/(2m)+g_{1D}|\psi|^2\psi$.
+
+\paragraph{1. Establish the model and its validity.}
+Derive $g_{3D}=4\pi\hbar^2a/m$ from low-energy scattering and integrate out the transverse harmonic ground state:
+\[
+g_{1D}=g_{3D}\int|\varphi_\perp|^4d^2r_\perp=\frac{g_{3D}}{2\pi a_\perp^2}=2\hbar\omega_\perp a.
+\]
+The deliverable is a derivation with normalization, units, and conditions $|a|\ll a_\perp$ and weak axial excitation relative to $\hbar\omega_\perp$ (S\"ohn Sections 2.2.2--3.2.1; Balakrishnan--Satija Sections 2--3).
+
+\paragraph{2. Establish the excitation and length scales.}
+Linearize around the uniform repulsive solution $\psi=\sqrt{n_0}e^{-ig_{1D}n_0t/\hbar}$:
+\[
+(\hbar\omega)^2=\epsilon_k(\epsilon_k+2g_{1D}n_0),\quad
+\epsilon_k=\frac{\hbar^2k^2}{2m},\quad
+c=\sqrt{\frac{g_{1D}n_0}{m}},\quad
+\xi=\frac{\hbar}{\sqrt{2mg_{1D}n_0}}.
+\]
+The result is the phonon-to-particle crossover and a width scale for a dark soliton. For $g_{1D}<0$ on a uniform background, the low-$k$ frequency becomes imaginary; an attractive bright soliton instead sits on a zero background (Balakrishnan--Satija Section 3.1).
+
+\paragraph{3. Calculate the bright branch.}
+For $g_{1D}=-G<0$ and $N=\int|\psi|^2dx$:
+\[
+\psi_B(x,t)=\sqrt{\frac N{2L}}\,\mathrm{sech}(x/L)e^{-i\mu t/\hbar},\quad
+L=\frac{2\hbar^2}{mGN},\quad
+\mu=-\frac{mG^2N^2}{8\hbar^2},\quad
+E_B^{\rm GP}=-\frac{mG^2N^3}{24\hbar^2}.
+\]
+Show the $\mathrm{sech}$ substitution in the stationary equation and calculate $N$, $\mu$, and $E$. A Galilean boost produces a moving solution and shifts its energy by $Nm v^2/2$ (S\"ohn Section 3.2.2; Balakrishnan--Satija Section 4.2).
+
+\paragraph{4. Calculate the dark-to-grey family.}
+For $g_{1D}>0$, set $\beta=v/c$ and $L_0=\hbar/(mc)=\sqrt2\xi$. The exact travelling family is
+\[
+\psi_G=\sqrt{n_0}e^{-ig_{1D}n_0t/\hbar}
+\left[i\beta+\sqrt{1-\beta^2}\,
+\tanh\!\left(\frac{\sqrt{1-\beta^2}(x-vt)}{L_0}\right)\right].
+\]
+Measure $n_{\min}/n_0=\beta^2$, width $L_0/\sqrt{1-\beta^2}$, phase-jump magnitude $2\arccos\beta$, and excitation energy above the uniform background
+\[
+\Delta E_G=\frac43\hbar n_0c(1-\beta^2)^{3/2}.
+\]
+For $v=0$ this is a black soliton with a density zero and a $\pi$ phase step (Balakrishnan--Satija Section 4.1).
+
+\paragraph{5. Make and verify a numerical benchmark.}
+Use Strang split-step Fourier propagation for the dimensionless 1D GPE. The companion script uses $\hbar=m=1$, $g=-1$, $N=2$, moving speed $v=0.7$, box $[-30,30)$, 2048 points, $\Delta t=0.002$, and $t_{\rm final}=3$. It overlays the computed density on the Galilean-boosted exact $\mathrm{sech}^2$ profile. Measured relative number drift is $1.02\times10^{-14}$, relative energy drift $8.52\times10^{-12}$, and maximum pointwise density error $1.59\times10^{-6}$. These numerical tolerances are for this benchmark and do not establish general stability under perturbations. Next tests: a width change and a collision, each compared with a stated analytic prediction.
+
+\paragraph{6. Quantify the thesis' many-body correction.}
+For the attractive 1D delta gas, S\"ohn's exact Bethe bound state has
+\[
+E_{\rm Bethe}(N,P)=\frac{P^2}{2Nm}-\frac{mg_{1D}^2}{24\hbar^2}N(N^2-1).
+\]
+At rest, compare its binding energy to the leading GP expression in item 3: $E_{\rm Bethe}/E_B^{\rm GP}=1-1/N^2$. A momentum-sharp Bethe state is delocalized in its centre-of-mass coordinate; localizing its centre requires a momentum packet whose centre-of-mass width spreads. This connects directly to S\"ohn's Sections 4.2.1--4.3 on localization and coherence. An exact finite-$N$ Hartree comparison needs its own careful $N-1$ treatment.
+
+\paragraph{7. Quantify the paper's hard-core-boson distinction.}
+In the spin-coherent approximation of Balakrishnan--Satija Section 5, $b_j\leftrightarrow S_j^+$ and $n_j=\frac12-S_j^z$. With $\langle S^+\rangle=\frac12\sin\theta\,e^{i\phi}$ and $\rho=(1-\cos\theta)/2$,
+\[
+\rho_s=|\langle b\rangle|^2=\frac14\sin^2\theta=\rho(1-\rho).
+\]
+Plot $\rho_s$ against total filling $\rho$; it peaks at half filling, is symmetric under $\rho\mapsto1-\rho$, and vanishes at empty or completely filled sites. This is the first result on the paper's hard-core branch; the later target is its dark/antidark density relation and persistent-soliton dispersion (Sections 6--8).
+
+\paragraph{Meeting order.}
+Show results 1--5 as a checked common foundation (derivation, analytic profiles, plot, numerical verification). Show results 6 and 7 as two concrete directions emerging from the two PDFs, and agree on which to develop first. All of the above reproduce or compare established models; the research question follows from the selected branch.
+\end{document}
