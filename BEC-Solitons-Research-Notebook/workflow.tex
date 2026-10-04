@@ -1,0 +1,39 @@
+\section{Research workflow and result sequence}
+
+This is a separate notebook for calculations, numerical checks, and research questions arising from the two supplied PDFs. The pedagogical A--E lessons remain in \texttt{BEC-Solitons-Notes/}. A result here can cite a learning module as preparation, but no research entry counts as a lesson completed by the student.
+
+\subsection{One result at a time}
+Every result entry has the same six pieces: (1) a question and source location; (2) the Hamiltonian, approximation, normalization, and boundary conditions; (3) a derivation with reproducible intermediate steps; (4) a calculation or simulation, with code and figure; (5) a check independent of the plotted formula, such as units, asymptotics, a conservation law, or grid refinement; and (6) an interpretation, limitation, and next question. We label an entry \emph{previewed}, \emph{derived}, \emph{numerically checked}, or \emph{discussed}. These labels record different kinds of progress rather than an implied claim of novelty.
+
+\subsection{Current previews}
+P0 is a moving-bright GPE propagation with an exact-profile check (Section~\ref{sec:P00}); P1 is a two-source algebraic comparison (Section~\ref{sec:P01}). They are already reproducible but have not passed the student's derivation checkpoints. When a preview is independently derived and verified, promote the underlying claim into its corresponding R-entry; preserve the original numbers as an audit trail.
+
+\subsection{Common GPE baseline}
+\begin{enumerate}[label=R\arabic*.,leftmargin=2.2em]
+\item \textbf{Model and regime:} derive $g_{3D}=4\pi\hbar^2a/m$ from low-energy scattering and $g_{1D}=2\hbar\omega_\perp a$ by integrating out the transverse oscillator ground state. State exactly when the contact and quasi-1D approximations apply. Output: dimension-checked equations and regime chart. Sources: S\"ohn Sections 2.2--3.2; Balakrishnan--Satija Sections 2--3.
+\item \textbf{Excitations:} linearize about a uniform condensate, derive $(\hbar\omega)^2=\epsilon_k(\epsilon_k+2g_{1D}n_0)$, and obtain sound speed $c$ and healing length $\xi$. Output: dispersion and limiting-case check, including instability for an attractive uniform background. Learning dependencies: C1--C4.
+\item \textbf{Attractive GPE family:} calculate a bright soliton's norm, width, chemical potential, energy, and Galilean boost. Output: a parameter sweep for width versus $|g_{1D}|N$ and an energy check against the functional. Learning dependencies: D1--D2.
+\item \textbf{Repulsive GPE family:} derive dark and grey solutions. Output: plotted density and phase, $n_{\min}/n_0=(v/c)^2$, phase jump, width, and energy as functions of velocity. Learning dependencies: D1, D3--D4.
+\item \textbf{Dynamics and reproducibility:} extend preview P0 to grid and time-step convergence; then try a controlled perturbation or two-soliton collision. Output: code, figure, error table, and carefully stated boundary conditions. Learning dependency: D5.
+\end{enumerate}
+
+\subsection{S\"ohn branch: what changes beyond mean field?}
+\begin{enumerate}[label=R\arabic*.,leftmargin=2.2em]
+\setcounter{enumi}{5}
+\item Derive the $N$-particle Hartree ansatz and the $N-1$ factor in the orbital equation. Compute its finite-$N$ energy with the actual pair count $N(N-1)/2$ before comparing to any GPE formula. Source: S\"ohn Section 4.1.
+\item Solve the attractive delta-gas bound cluster, derive $E_{\rm Bethe}(N,P)=P^2/(2Nm)-mg_{1D}^2N(N^2-1)/(24\hbar^2)$, and compare its large-$N$ binding to GPE. The preliminary algebraic comparison is in preview P1. Source: S\"ohn Section 4.2.
+\item Superpose Bethe momentum eigenstates to localize the centre of mass, calculate its subsequent spread, and distinguish this from the stationary mean-field profile. Source: S\"ohn Sections 4.2.1--4.2.2.
+\item Examine $G^{(1)}(x,x')$ and density correlations for a localized soliton state. Output: a comparison of what density and coherence each reveal. Source: S\"ohn Section 4.3.
+\end{enumerate}
+
+\subsection{Balakrishnan--Satija branch: what changes for hard-core bosons?}
+\begin{enumerate}[label=R\arabic*.,leftmargin=2.2em]
+\setcounter{enumi}{9}
+\item Take the hard-core limit of the extended Bose--Hubbard model and establish its on-site spin-$\tfrac12$ mapping. Output: commutator and occupancy table. Source: Section 5.1.
+\item Work in the paper's spin-coherent approximation and derive $\rho_s=|\langle b\rangle|^2=\rho(1-\rho)$. Output: a particle--hole symmetry plot. The preliminary source comparison is in preview P1. Source: Section 5.2.
+\item Derive the effective nonlinear evolution and compare dark and antidark profiles of particle density and order-parameter density. Output: a figure reproducing a selected paper result. Sources: Sections 6--7.
+\item Trace the persistent-soliton condition and energy--momentum dispersion; compare particle and hole descriptions. Output: a checked $E(P)$ curve and the regime where it applies. Sources: Sections 7--8.
+\end{enumerate}
+
+\subsection{Meeting and progress protocol}
+For the 5 October meeting, take the model chain, the current GPE figure and numerical check, and the two source-specific questions as explicitly preliminary results. Ask which physical regime and open question the professor wants emphasized first. Both branches remain in this notebook; that choice determines order and depth. After each session, update the relevant R-entry, its script and plot, a short assumptions ledger, and a two-sentence explanation suitable for a supervisor meeting. The companion learning notebook handles the detailed teaching at its original slow pace.
