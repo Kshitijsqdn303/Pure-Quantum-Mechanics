@@ -1,0 +1,17 @@
+\section{Preview P0: Moving bright soliton benchmark}
+\label{sec:P00}
+\noindent\textbf{Status:} preliminary analytic and numerical reproduction; the student's derivation and convergence checkpoints are pending. This is a benchmark of an established solution.
+
+Use $\hbar=m=1$ and attractive coupling $g=-1$ in the free-axial GPE,
+\[
+i\partial_t\psi=-\tfrac12\partial_x^2\psi-|\psi|^2\psi.
+\]
+For norm $N=2$, the stationary $\operatorname{sech}$ has unit width and amplitude: $f(x)=\operatorname{sech}(x)$. Indeed $f''=f-2f^3$, so $-f''/2-f^3=-f/2$ and its chemical potential is $\mu=-1/2$. A Galilean boost with speed $v$ gives
+\[
+\psi_v(x,t)=\operatorname{sech}(x-vt)
+\exp\!\left[i v x-i\left(\frac{v^2}{2}-\frac12\right)t\right],
+\qquad |\psi_v|^2=\operatorname{sech}^2(x-vt).
+\]
+The script \texttt{benchmarks/gpe\_soliton\_benchmarks.py} uses a Strang split-step Fourier update with $v=0.7$, periodic box $[-30,30)$, 2048 grid points, time step $0.002$ and final time $t=3$. It checks the final numerical density against the exact function above: maximum pointwise density error $1.5891\times10^{-6}$; relative norm drift $1.0214\times10^{-14}$; relative energy drift $8.5228\times10^{-12}$. The observed peak grid point is $2.109375$ and the predicted continuous centre is $2.1$; their difference is smaller than one grid spacing $60/2048$. These figures characterize only this run.
+
+The script also makes a four-panel figure of bright width variation, dark-to-grey density profiles, the moving-bright propagation, and Bogoliubov dispersion. The source-controlled image is at \href{https://github.com/Kshitijsqdn303/Pure-Quantum-Mechanics/blob/main/BEC-Solitons-Research-Notebook/benchmarks/gpe_soliton_benchmarks.svg}{\texttt{benchmarks/gpe\_soliton\_benchmarks.svg}}. The plotted analytic families are orientation plots; their derivations belong in later entries. Next verification: halve the time step and refine the grid independently, then record how the shape error changes.
