@@ -1,0 +1,25 @@
+\section{Preview P1: Two source-specific comparisons}
+\label{sec:P01}
+\noindent\textbf{Status:} preliminary source-based algebra and figure, pending full many-body and spin-mapping derivations. These are established model predictions.
+
+\paragraph{S\"ohn: exact cluster versus leading GPE.}
+For an attractive 1D delta gas with $N$ bosons and total momentum $P$, the Bethe cluster energy is
+\[
+E_{\rm Bethe}(N,P)=\frac{P^2}{2Nm}
+-\frac{m g_{1D}^2}{24\hbar^2}N(N^2-1).
+\]
+The leading stationary GPE calculation at the same coupling and $P=0$ gives
+\[
+E_{\rm GP}=-\frac{mg_{1D}^2N^3}{24\hbar^2},\qquad
+\frac{E_{\rm Bethe}(N,0)}{E_{\rm GP}}=1-\frac1{N^2}.
+\]
+This comparison uses the leading GPE functional with $N$ in the cubic term; a finite-$N$ Hartree calculation instead retains $N-1$ and will be treated separately. The exact state has a delocalized centre of mass when $P$ is sharp. Source: S\"ohn Chapter 4, especially Equation (4.20).
+
+\paragraph{Balakrishnan--Satija: hard-core order-parameter density.}
+In the paper's spin-coherent approximation let $b_j=S_j^+$ and $n_j=\frac12-S_j^z$. For a spin angle $\theta$ and phase $\phi$, $\langle S^+\rangle=\frac12\sin\theta\,e^{i\phi}$ and the site filling is $\rho=(1-\cos\theta)/2$. Hence
+\[
+\rho_s=|\langle b\rangle|^2=\frac14\sin^2\theta=\rho(1-\rho).
+\]
+The curve vanishes at $\rho=0$ and $1$, peaks at $\rho=1/2$, and is invariant under $\rho\mapsto1-\rho$. It is an order-parameter density in the spin-coherent approximation, not a claim of exact off-diagonal long-range order for a thermodynamic 1D gas. Source: Balakrishnan--Satija Section 5.2, Equation (19).
+
+The two-panel reproduction is at \href{https://github.com/Kshitijsqdn303/Pure-Quantum-Mechanics/blob/main/BEC-Solitons-Research-Notebook/benchmarks/source_branches.svg}{\texttt{benchmarks/source\_branches.svg}}. Next tasks: derive the Bethe result from the bound-state wavefunction and the hard-core result from the operator algebra, then decide with the supervisor which branch to develop first.
